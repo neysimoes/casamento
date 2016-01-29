@@ -1,55 +1,29 @@
-.header {
-  height: 100%;
-  display: block;
-  position: relative;
-  background-image: url('../image/header2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+.header
+  height 100%
+  width 100%
+  display block
+  position relative
+  // filter: grayscale(1)
+  background-image url('../image/header.jpg')
+  background-repeat no-repeat
+  background-size cover
   background-position center center
-  +mobile() {
-    height: 30%
-    background-position initial
-    background-size: contain;
-  }
-  &:before {
-    content: '';
-    display: block;
-    background-color: rgba(0,0,0,0.2);
-    absolute: 0 0 0 0;
-  }
-}
-.box-center {
-  margin: auto;
-  absolute: 0 0 0 0;
-  height: 180px;
-  text-align: center;
-  text-shadow: 1px 1px 2px black;
-  color: #eee;
-  z-index:1;
-  +mobile() {
-    position relative
-    padding-top: 20px
-  }
-  .title {
-    font-family: 'Always In My Heart';
-    font-weight: bold;
-    font-size: rem(90px);
-    color: yellow;
-    +mobile() {
-      font-size rem(50px)
-    }
-  }
-  .dash {
-    border: 0;
-    margin: 15px auto;
-    border-bottom: 1px solid #fff;
-    width: 50%;
-  }
-  .date {
-    font-size: rem(20px);
-    +mobile() {
-      font-size rem(14px)
-    }
-  }
-}
+  z-index -1
+  &:before
+    content ''
+    display block
+    background-color primary
+    opacity 0.5
+    absolute 0 0 0 0
+
+.title
+  margin auto
+  absolute 0 0 0 0
+  text-align center
+  height 1.5em
+  font-size 3rem
+  font-weight 700
+  color #fff
+  .fa
+    font-size 2rem
+  // filter: blur(0);
