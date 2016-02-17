@@ -4,10 +4,13 @@
 
 .content
   center(960px)
-
-.container
   +below(rupture.desktop-cutoff)
-    transition transform 0.5s
-    transform translate(0, 0)
-    &.is-open
-      transform translate(200px, 0)
+    padding 0 10px
+
+.full-image
+  border-top 1px solid #ccc
+  border-bottom 1px solid #ccc
+  line-height 0
+  img
+    width 100%
+    height auto

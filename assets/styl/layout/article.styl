@@ -9,24 +9,27 @@ p
   padding-bottom 2rem
 em
   margin 0 auto
-.music
-  text-align center
-  em
-    text-align left
-    display inline-block
-    width 300px
 .article
   padding: 5rem 0;
+  color gray
+  +below(rupture.desktop-cutoff)
+    padding 3rem 0
 
 .article-title
-  color #fff
+  color light-gray
   font-size 3rem
-  padding 3rem 0
+  padding-top 3rem
+  padding-bottom 1rem
   text-align center
   text-transform uppercase
+  +below(rupture.desktop-cutoff)
+    font-size 2rem
+    padding-top 1rem
+
 
 .article-subtitle
-  color #fff
+  padding-bottom 2rem
+  color light-gray
   text-align center
   font-weight 400
 

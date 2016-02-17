@@ -5,7 +5,46 @@ var gulp          = require('gulp'),
     autoprefixer  = require('autoprefixer-stylus'),
     stylus        = require('gulp-stylus'),
     jeet          = require('jeet'),
-    browserSync   = require('browser-sync').create();
+    uglify        = require('gulp-uglify'),
+    imagemin      = require('gulp-imagemin'),
+    browserSync   = require('browser-sync').create()
+    htmlmin       = require('gulp-htmlmin');
+
+const DIST_PATH = 'public/';
+
+gulp.task('css', ['stylus'], function () {
+  return gulp.src([
+      'assets/css/style.css'
+    ])
+    .pipe(cssnano())
+    .pipe(gulp.dest('public/assets/css/'));
+});
+
+gulp.task('js', function () {
+  return gulp.src([
+      'assets/script/main.js'
+    ])
+    .pipe(uglify())
+    .pipe(gulp.dest('public/assets/script/'));
+});
+
+gulp.task('image', function () {
+  return gulp.src([
+      'assets/image/**'
+    ])
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    }))
+    .pipe(gulp.dest('public/assets/image/'));
+});
+
+gulp.task('html', function () {
+  return gulp.src('index.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('public/'));
+});
+
 
 gulp.task('serve', function() {
     browserSync.init({
@@ -27,17 +66,8 @@ gulp.task('stylus', function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('css.min', function () {
-  return gulp.src([
-      'assets/css/style.css'
-    ])
-    .pipe(cssnano().on('error', gutil.log))
-    .pipe(concat('style.min.css'))
-    .pipe(gulp.dest('assets/css/'));
-});
-
 gulp.task('watch', ['stylus'], function () {
 });
 
-
+gulp.task('build', ['css', 'js', 'image', 'html']);
 gulp.task('default', ['stylus', 'serve']);

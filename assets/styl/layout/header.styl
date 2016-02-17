@@ -8,13 +8,11 @@
   background-repeat no-repeat
   background-size cover
   background-position center center
-  z-index -1
-  &:before
-    content ''
-    display block
-    background-color primary
-    opacity 0.5
-    absolute 0 0 0 0
+.mask-bg
+  display block
+  background-color primary
+  opacity 0.5
+  absolute 0 0 0 0
 
 .title
   margin auto
@@ -27,3 +25,27 @@
   .fa
     font-size 2rem
   // filter: blur(0);
+.btn-presents
+  margin auto
+  position absolute
+  left 0
+  right 0
+  bottom 0
+  top 130px
+  color #fff
+  text-decoration none
+  font-weight 700
+  text-align center
+  padding 10px 0
+  max-height 44px
+  border-radius (@max-height/2)
+  width 250px
+  display block
+  border 2px solid #fff
+  text-transform uppercase
+  z-index 99999
+  &:hover
+    background primary
+    border-color primary
+    box-shadow 0px 0px 3px rgba(0,0,0,0.5)
+
